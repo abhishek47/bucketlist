@@ -17,6 +17,15 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/categories/choose', 'CategoriesController@index');
+
+Route::post('/categories/filters', 'CategoriesController@store');
+
+Route::get('/budget/set', 'BudgetController@index');
+
+Route::post('/budget/set', 'BudgetController@set');
+
+Route::post('/carts', 'CartController@index');
 
 Route::group(['prefix' => 'admin', 'middleware' => ['admin'], 'namespace' => 'Admin'], function()
 {	
