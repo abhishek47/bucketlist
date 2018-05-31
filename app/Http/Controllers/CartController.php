@@ -69,6 +69,10 @@ class CartController extends Controller
             }
 
         }
+        
+
+            // sort alphabetically by name
+        usort($carts,  array($this, 'compare_rating'));
 
         dd($carts);
 
@@ -78,6 +82,11 @@ class CartController extends Controller
 
 
     	return view('cart.choices', compact('carts'));
+    }
+
+     public function compare_rating($a, $b)
+    {
+        return $a > $b;
     }
 
     private function combinations($arrays, $i = 0) {
