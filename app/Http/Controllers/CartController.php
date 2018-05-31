@@ -38,13 +38,27 @@ class CartController extends Controller
     	}
 
 
-        $combinations = [];
+        $carts = [];
 
-        dd($this->combinations($all_products));
+        $combinations = $this->combinations($all_products);
+
+
+        foreach ($combinations as $key => $combination) {
+            $cart = [];
+
+            $cart['items'] = $combination;
+            $cart['total'] = 0;
+            $cart['total_profit'] = 0;
+
+            foreach ($combination as $key => $product) {
+                $cart['total'] = $cart['total'] + $product->price;
+                $cart['total_profit'] = $cart['total_profit'] + ($product->price - $product->cost_price);
+                $cart['rating'] = 
+            }
+        }
 
 
 
-    	$carts = [];
 
 
 
