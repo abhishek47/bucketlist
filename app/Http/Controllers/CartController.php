@@ -60,7 +60,7 @@ class CartController extends Controller
     }
 
     // get combinations from subsequent arrays
-    $tmp = combinations($arrays, $i + 1);
+    $tmp = $this->combinations($arrays, $i + 1);
 
     $result = array();
 
