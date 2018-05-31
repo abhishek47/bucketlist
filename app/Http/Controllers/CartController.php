@@ -73,6 +73,8 @@ class CartController extends Controller
         }
     }
 
+    return 100;
+
     return $result;
 }
 
