@@ -50,6 +50,7 @@ class CartController extends Controller
             $cart['items'] = $combination;
             $cart['total'] = 0;
             $cart['total_profit'] = 0;
+            $cart['rating'] = 0;
 
             foreach ($combination as $key => $product) {
                 $cart['total'] = $cart['total'] + $product->price;
