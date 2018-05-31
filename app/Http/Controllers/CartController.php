@@ -60,13 +60,12 @@ class CartController extends Controller
 
             if($cart['total'] <= $budget)
             {
-                if((count($cart['items']) == count($catIds)) || ( (($budget - $cart['total']) == 0) || (($budget - $cart['total']) >= $budget * (50/100))))
-                {
+                
                     $cart['total_profit'] = $cart['total_profit'] / count($cart['items']);
                     $cart['rating'] = $cart['rating'] / count($cart['items']);
                     $cart['rank_value'] = $cart['total_profit'] / $cart['rating'];
                     $carts[] = $cart;
-                }
+               
             }
 
         }
