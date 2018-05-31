@@ -50,7 +50,7 @@ class CartController extends Controller
         
 
             // sort alphabetically by name
-        usort($carts,  array($this, 'compare_rank'));
+        usort($this->carts,  array($this, 'compare_rank'));
 
         dd($carts);
 
