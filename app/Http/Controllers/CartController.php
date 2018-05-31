@@ -71,6 +71,8 @@ class CartController extends Controller
 
         }
 
+        dd($carts);
+
 
 
 
