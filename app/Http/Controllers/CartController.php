@@ -86,7 +86,7 @@ class CartController extends Controller
 
      public function compare_rank($a, $b)
     {
-        return $a['rank_value'] > $b['rank_value'];
+        return $a['rank_value'] < $b['rank_value'];
     }
 
     private function combinations($arrays, $i = 0) {
