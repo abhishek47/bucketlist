@@ -53,7 +53,7 @@ class CartController extends Controller
             foreach ($combination as $key => $product) {
                 $cart['total'] = $cart['total'] + $product->price;
                 $cart['total_profit'] = $cart['total_profit'] + ($product->price - $product->cost_price);
-                $cart['rating'] = 
+                $cart['rating'] = $cart['rating'] + $product->rating;
             }
         }
 

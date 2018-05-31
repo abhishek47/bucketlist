@@ -63,9 +63,13 @@ class ProductCrudController extends CrudController
              ['name' => 'cost_price', 'label' => 'Buying Price  <span style="color: red;">*</span>', 'type' => 'number', 'attributes' => ['min' => 1]],
 
             ['name' => 'price', 'label' => 'Price  <span style="color: red;">*</span>', 'type' => 'number', 'attributes' => ['min' => 1]],
+
           
             ['name' => 'discount_price', 'label' => 'Discounted Price (leave blank for no discount)', 'type' => 'number', 'attributes' => ['min' => 1]],
           
+
+            ['name' => 'rating', 'label' => 'Rating  <span style="color: red;">*</span>', 'type' => 'number', 'attributes' => ['min' => 1]],
+
             ['name' => 'stock', 'label' => 'Stock  <span style="color: red;">*</span>', 'type' => 'number', 'attributes' => ['min' => 1]],
 
 
