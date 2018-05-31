@@ -26,17 +26,19 @@ class CartController extends Controller
     	}
 
 
-    	$products = [];
+    	$all_products = [];
 
     	foreach ($categories as $key => $category) {
     		$products = Product::where('category_id', $category->id)->whereHas('options',function ($query) use ($options, $category) {
     					
 						    $query->where('options.id', $options[$category->id]);
 						})->with('options')->get();
+
+            $all_products[] = $products;
     	}
 
 
-    	dd($products);
+    	dd($all_products);
 
 
     	$carts = [];
