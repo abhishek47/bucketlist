@@ -13,7 +13,7 @@ class CartController extends Controller
 
     public function index()
     {
-    	$budget = session('budget');
+    	
 
     	$catIds = session('categories');
     	
@@ -64,6 +64,7 @@ class CartController extends Controller
 
     public function generateCarts($combinations)
     {
+        $budget = session('budget');
         foreach ($combinations as $key => $combination) {
             $cart = [];
 
