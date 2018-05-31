@@ -8,6 +8,9 @@ use Illuminate\Http\Request;
 
 class CartController extends Controller
 {
+
+    public $carts = [];
+
     public function index()
     {
     	$budget = session('budget');
@@ -39,11 +42,28 @@ class CartController extends Controller
     	}
 
 
-        $carts = [];
 
         $combinations = $this->combinations($all_products);
 
 
+        $this->generateCarts($combinations);
+        
+
+            // sort alphabetically by name
+        usort($carts,  array($this, 'compare_rank'));
+
+        dd($carts);
+
+
+
+
+
+
+    	return view('cart.choices', compact('carts'));
+    }
+
+    public function generateCarts($combinations)
+    {
         foreach ($combinations as $key => $combination) {
             $cart = [];
 
@@ -64,24 +84,14 @@ class CartController extends Controller
                     $cart['total_profit'] = $cart['total_profit'] / count($cart['items']);
                     $cart['rating'] = $cart['rating'] / count($cart['items']);
                     $cart['rank_value'] = $cart['total_profit'] / $cart['rating'];
-                    $carts[] = $cart;
+                    $this->carts[] = $cart;
                
+            } else {
+                $permutations = new \drupol\phpermutations\Generators\Permutations($combination, count($combination)-1);
+                $this->generateCarts($permutations);
             }
 
         }
-        
-
-            // sort alphabetically by name
-        usort($carts,  array($this, 'compare_rank'));
-
-        dd($carts);
-
-
-
-
-
-
-    	return view('cart.choices', compact('carts'));
     }
 
      public function compare_rank($a, $b)
