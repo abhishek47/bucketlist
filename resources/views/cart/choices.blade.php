@@ -11,9 +11,9 @@
 				<hr>
 
 				@foreach($carts as $cart)
-				<div>
-					<table class="table">
-						<thead>
+				<div style="margin-bottom: 25px;">
+					<table class="table table-stripped" style="font-size: 20px;">
+						<thead class="thead-dark">
 							<tr>
 								<th>Name</th>
 								<th style="text-align: right;">Price</th>
@@ -21,13 +21,20 @@
 							@foreach($cart['items'] as $product)
 								<tr>
 									<td>{{ $product->name }}</td>
-									<td style="text-align: right;">{{ $product->price }}</td>
+									<td style="text-align: right;">&#8377; {{ $product->price }}</td>
 								</tr>
 							@endforeach
 							<tr>
 								<td></td>
 								<td style="text-align: right;font-weight: bold;">
-									Total : {{ $cart['total'] }}
+									Total : &#8377; {{ $cart['total'] }}
+								</td>
+							</tr>
+
+							<tr>
+								<td></td>
+								<td style="text-align: right;">
+									<a class="btn btn-warning" href="/cart/choose/{{$cart->id}}">Choose This Cart</a>
 								</td>
 							</tr>
 						</thead>
