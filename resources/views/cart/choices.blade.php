@@ -20,7 +20,7 @@
 							</tr>
 							@foreach($cart['items'] as $product)
 								<tr>
-									<td>{{ $product->name }}</td>
+									<td>{{ $product->name }}<br><a href="#product-{{$product->id}}" data-toggle="modal">View Details</a></td>
 									<td style="text-align: right;">&#8377; {{ $product->price }}</td>
 								</tr>
 							@endforeach
@@ -46,5 +46,23 @@
 			</div>
 		</div>
 	</div>
+
+		@foreach($cart['items'] as $product)
+
+			<div id="product-{{$product->id}}" class="modal fade">
+				<div class="modal-header">
+					{{ $product->name }}
+				</div>			
+				<div class="modal-body">
+					
+					{!! $product->decription !!}
+
+					<hr>
+
+					<h4><b>&#8377; {{ $product->price }}</b></h4>
+				</div>
+			</div>
+
+		@endforeach
 
 @endsection
