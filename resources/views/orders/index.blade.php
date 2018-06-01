@@ -12,7 +12,8 @@
 
 				@foreach($orders as $index => $order)
 				<div style="margin-bottom: 25px;">
-					<table class="table table-stripped" style="font-size: 20px;">
+					<h4>Order #{{$order->id}}</h4>
+					<table class="table table-stripped" style="font-size: 18px;">
 						<thead class="thead-dark">
 							<tr>
 								<th>Name</th>
