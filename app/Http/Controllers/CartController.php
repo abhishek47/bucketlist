@@ -162,7 +162,7 @@ class CartController extends Controller
                 
                     $cart['total_profit'] = $cart['total_profit'] / count($cart['items']);
                     $cart['rating'] = $cart['rating'] / count($cart['items']);
-                    $cart['rank_value'] = $cart['total_profit'] / $cart['rating'];
+                    $cart['rank_value'] = $cart['total_profit'] / $cart['rating'] + count($cart['items']);
                     $this->carts[] = $cart;
                
             } else {
