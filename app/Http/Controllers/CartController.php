@@ -55,7 +55,7 @@ class CartController extends Controller
 
         $combinations = $this->combinations($all_products);
 
-dd($combinations);
+
 
 
         $this->generateCarts($combinations);
@@ -144,6 +144,7 @@ dd($combinations);
 
     public function generateCarts($combinations)
     {
+        var_dump($combinations);
         $budget = session('budget');
         foreach ($combinations as $key => $combination) {
 
