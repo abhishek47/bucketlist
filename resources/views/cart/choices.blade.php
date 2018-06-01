@@ -16,14 +16,20 @@
 						<thead>
 							<tr>
 								<th>Name</th>
-								<th>Price</th>
+								<th style="text-align: right;">Price</th>
 							</tr>
 							@foreach($cart['items'] as $product)
 								<tr>
 									<td>{{ $product->name }}</td>
-									<td>{{ $product->price }}</td>
+									<td style="text-align: right;">{{ $product->price }}</td>
 								</tr>
 							@endforeach
+							<tr>
+								<td></td>
+								<td style="text-align: right;font-weight: bold;">
+									Total : {{ $cart['total'] }}
+								</td>
+							</tr>
 						</thead>
 					</table>
 				</div>
