@@ -34,7 +34,7 @@
 							<tr>
 								<td></td>
 								<td style="text-align: right;">
-									<a class="btn btn-warning" href="/cart/choose/{{$cart->id}}">Choose This Cart</a>
+									<a class="btn btn-warning" href="/cart/choose">Choose This Cart</a>
 								</td>
 							</tr>
 						</thead>
