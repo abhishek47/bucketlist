@@ -53,7 +53,7 @@
 					        </button>
 					      </div>
 					      <div class="modal-body">
-					        {!! $product->decription !!}
+					        {!! $product->description !!}
 
 							<hr>
 								<p>
