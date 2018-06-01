@@ -29,12 +29,12 @@
 							<tr>
 								<td></td>
 								<td style="text-align: right;font-weight: bold;">
-									Total : &#8377; {{ $cart['total'] }}
+									Total : &#8377; {{ $choosen['total'] }}
 								</td>
 							</tr>
 
 							<tr>
-								<td style="font-weight: bold;">You Saved : &#8377; {{ session('budget') - $cart['total'] }}</td>
+								<td style="font-weight: bold;">You Saved : &#8377; {{ session('budget') - $choosen['total'] }}</td>
 								<td style="text-align: right;">
 								</td>
 							</tr>
