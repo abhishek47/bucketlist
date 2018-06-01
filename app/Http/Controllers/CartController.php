@@ -82,6 +82,8 @@ class CartController extends Controller
 
         $order->total = $choosen['total'];
 
+        $order->savings = session('budget') - $order->total;
+
         $order->save();
 
         foreach ($choosen['items'] as $key => $product) {
@@ -108,7 +110,18 @@ class CartController extends Controller
             $neworder->total = $order->total + $product->price;
         }
 
+        if($neworder->total < $order->total)
+        {
+            $savings = $order->savings + ( $order->total - $neworder->total);
+        } else {
+            $savings = $order->savings - ( $neworder->total - $order->total);
+        }
+
+        $neworder->savings = $savings;
+
         $neworder->save();
+
+
 
         return view('cart.choosen', compact('choosen', 'order'));
     }
