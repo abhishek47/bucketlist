@@ -58,8 +58,15 @@
 					{!! $product->decription !!}
 
 					<hr>
-
+						<p>
+						@foreach($product->options as $option)
+							{{ $option->nameWithAttr }} | 
+						@endforeach
+						</p>
+					<hr>
 					<h4><b>&#8377; {{ $product->price }}</b></h4>
+
+
 				</div>
 			</div>
 
