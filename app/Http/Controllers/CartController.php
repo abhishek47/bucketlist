@@ -54,7 +54,7 @@ class CartController extends Controller
 
       //  dd($this->carts);
 
-    	return view('cart.choices', compact('carts'));
+    	return view('cart.choices', ['carts' => $this->carts]);
     }
 
     public function generateCarts($combinations)
