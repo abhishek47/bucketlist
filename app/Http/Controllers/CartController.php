@@ -103,6 +103,8 @@ class CartController extends Controller
 
         $neworder->total = 0;
 
+        $neworder->savings = 0;
+
         $neworder->save();
 
         foreach ($order->products as $key => $product) {
