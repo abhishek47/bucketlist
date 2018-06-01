@@ -20,7 +20,7 @@
 							</tr>
 							@foreach($cart['items'] as $product)
 								<tr>
-									<td>{{ $product->name }}<br><a href="#product-{{$product->id}}" data-toggle="modal">View Details</a></td>
+									<td>{{ $product->name }}<br><a href="#{{$index}}-product-{{$product->id}}" data-toggle="modal">View Details</a></td>
 									<td style="text-align: right;">&#8377; {{ $product->price }}</td>
 								</tr>
 							@endforeach
@@ -40,6 +40,39 @@
 						</thead>
 					</table>
 				</div>
+
+				@foreach($cart['items'] as $product)
+
+					<div id="{{$index}}-product-{{$product->id}}" class="modal" tabindex="-1" role="dialog">
+					  <div class="modal-dialog" role="document">
+					    <div class="modal-content">
+					      <div class="modal-header">
+					        <h5 class="modal-title">{{ $product->name }}</h5>
+					        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					          <span aria-hidden="true">&times;</span>
+					        </button>
+					      </div>
+					      <div class="modal-body">
+					        {!! $product->decription !!}
+
+							<hr>
+								<p>
+								@foreach($product->options as $option)
+									{{ $option->nameWithAttr }} | 
+								@endforeach
+								</p>
+							<hr>
+							<h4><b>&#8377; {{ $product->price }}</b></h4>
+					      </div>
+					      <div class="modal-footer">
+					        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					      </div>
+					    </div>
+					  </div>
+					</div>
+								
+				@endforeach
+
 				@endforeach
 
 
@@ -47,36 +80,5 @@
 		</div>
 	</div>
 
-		@foreach($cart['items'] as $product)
-
-			<div id="product-{{$product->id}}" class="modal" tabindex="-1" role="dialog">
-			  <div class="modal-dialog" role="document">
-			    <div class="modal-content">
-			      <div class="modal-header">
-			        <h5 class="modal-title">{{ $product->name }}</h5>
-			        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-			          <span aria-hidden="true">&times;</span>
-			        </button>
-			      </div>
-			      <div class="modal-body">
-			        {!! $product->decription !!}
-
-					<hr>
-						<p>
-						@foreach($product->options as $option)
-							{{ $option->nameWithAttr }} | 
-						@endforeach
-						</p>
-					<hr>
-					<h4><b>&#8377; {{ $product->price }}</b></h4>
-			      </div>
-			      <div class="modal-footer">
-			        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-			      </div>
-			    </div>
-			  </div>
-			</div>
-						
-		@endforeach
 
 @endsection
