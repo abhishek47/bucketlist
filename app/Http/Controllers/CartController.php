@@ -109,7 +109,7 @@ class CartController extends Controller
 
         foreach ($order->products as $key => $product) {
             $neworder->products()->attach($product);
-            $neworder->total = $order->total + $product->price;
+            $neworder->total = $neworder->total + $product->price;
         }
 
         if($neworder->total < $order->total)
