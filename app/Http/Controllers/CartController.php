@@ -52,12 +52,7 @@ class CartController extends Controller
             // sort alphabetically by name
         usort($this->carts,  array($this, 'compare_rank'));
 
-        dd($this->carts);
-
-
-
-
-
+      //  dd($this->carts);
 
     	return view('cart.choices', compact('carts'));
     }
@@ -66,6 +61,7 @@ class CartController extends Controller
     {
         $budget = session('budget');
         foreach ($combinations as $key => $combination) {
+
             $cart = [];
 
             $cart['items'] = $combination;
