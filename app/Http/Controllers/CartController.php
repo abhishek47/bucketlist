@@ -60,8 +60,7 @@ class CartController extends Controller
 
         $this->generateCarts($combinations);
         
-        
-        dd($this->carts);
+
 
             // sort alphabetically by name
         usort($this->carts,  array($this, 'compare_rank'));
@@ -170,10 +169,12 @@ class CartController extends Controller
                     $this->carts[] = $cart;
                
             } else {
-               
+               if(count($combination) > 2)
+               {
+                  $permutations = new \drupol\phpermutations\Generators\Permutations($combination, count($combination)-1);
+                  $this->generateCarts($permutations->toArray());
+               }
 
-                $permutations = new \drupol\phpermutations\Generators\Permutations($combination, count($combination)-1);
-                $this->generateCarts($permutations->toArray());
                 
             }
 
