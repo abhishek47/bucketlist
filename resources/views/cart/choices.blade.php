@@ -32,7 +32,7 @@
 							</tr>
 
 							<tr>
-								<td style="font-weight: bold;">You Save : {{ session('budget') - $cart['total'] }}</td>
+								<td style="font-weight: bold;">You Save : &#8377; {{ session('budget') - $cart['total'] }}</td>
 								<td style="text-align: right;">
 									<a class="btn btn-warning" href="/cart/choose">Choose This Cart</a>
 								</td>
