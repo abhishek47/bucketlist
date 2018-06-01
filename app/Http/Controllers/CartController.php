@@ -147,8 +147,7 @@ class CartController extends Controller
         
         $budget = session('budget');
         foreach ($combinations as $key => $combination) {
-            if(empty($combination))
-                return;
+
             $cart = [];
 
             $cart['items'] = $combination;
@@ -171,8 +170,9 @@ class CartController extends Controller
                     $this->carts[] = $cart;
                
             } else {
-               
-                $permutations = new \drupol\phpermutations\Generators\Permutations($combination, count($combination)-1);
+                
+                $permutations = new \drupol\phpermutations\Generators\Combinations($combination, count($combination)-1);
+             
                 $this->generateCarts($permutations->toArray());
                 
             } 
