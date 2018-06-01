@@ -7,14 +7,14 @@
 	<div class="container my-4">
 		<div class="card">
 			<div class="card-body">
-				<h3 class="font-weight-bold pb-3">Your order has been placed successfully</h3>
+				<h3 class="font-weight-bold pb-3">Your order has been placed successfully!</h3>
 			
 				<hr>
 
-				<h2>Order Summary</h2>
-									
+				<h4><b>Order Summary</b></h4>
+				<hr>						
 				<div style="margin-bottom: 25px;">
-					<table class="table table-stripped" style="font-size: 20px;">
+					<table class="table table-stripped" style="font-size: 18px;">
 						<thead class="thead-dark">
 							<tr>
 								<th>Name</th>
@@ -36,6 +36,7 @@
 							<tr>
 								<td style="font-weight: bold;">You Saved : &#8377; {{ session('budget') - $choosen['total'] }}</td>
 								<td style="text-align: right;">
+									<a class="btn btn-primary" href="/budget/set">Continue Shopping</a>
 								</td>
 							</tr>
 						</thead>
