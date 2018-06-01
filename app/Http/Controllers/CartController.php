@@ -175,7 +175,7 @@ class CartController extends Controller
 
                 $permutations = new \drupol\phpermutations\Generators\Combinations($combination, count($combination)-1);
 
-                dd($permutations);
+                dd($permutations->toArray());
              
                 $this->generateCarts($permutations->toArray());
                 
