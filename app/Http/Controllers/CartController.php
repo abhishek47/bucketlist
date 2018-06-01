@@ -172,9 +172,9 @@ class CartController extends Controller
             } else {
 
                 
-                $permutations = new \drupol\phpermutations\Generators\Combinations($combination, count($combination)-1);
+                $permutations = new \drupol\phpermutations\Generators\Permutations($combination, count($combination)-1);
 
-               Debugbar::info($permutations->toArray());
+               //Debugbar::info($permutations->toArray());
 
                 $this->generateCarts($permutations->toArray());
                 
