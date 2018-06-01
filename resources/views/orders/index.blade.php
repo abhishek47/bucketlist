@@ -7,20 +7,18 @@
 	<div class="container my-4">
 		<div class="card">
 			<div class="card-body">
-				<h3 class="font-weight-bold pb-3">Your order has been placed successfully! Order #{{$order->id}}</h3>
-			
+				<h3 class="font-weight-bold pb-3">Orders History</h3>
 				<hr>
 
-				<h4><b>Order Summary</b></h4>
-				<hr>						
+				@foreach($orders as $index => $order)
 				<div style="margin-bottom: 25px;">
-					<table class="table table-stripped" style="font-size: 18px;">
+					<table class="table table-stripped" style="font-size: 20px;">
 						<thead class="thead-dark">
 							<tr>
 								<th>Name</th>
 								<th style="text-align: right;">Price</th>
 							</tr>
-							@foreach($choosen['items'] as $product)
+							@foreach($order->products as $product)
 								<tr>
 									<td>{{ $product->name }}</td>
 									<td style="text-align: right;">&#8377; {{ $product->price }}</td>
@@ -29,20 +27,20 @@
 							<tr>
 								<td></td>
 								<td style="text-align: right;font-weight: bold;">
-									Total : &#8377; {{ $choosen['total'] }}
+									Total : &#8377; {{ $order->total }}
 								</td>
 							</tr>
 
 							<tr>
-								<td style="font-weight: bold;">You Saved : &#8377; {{ session('budget') - $choosen['total'] }}</td>
+								<td style="font-weight: bold;">You Saved : &#8377; {{ $order->savings }}</td>
 								<td style="text-align: right;">
-									<a class="btn btn-primary" href="/budget/set">Continue Shopping</a>
+									<a class="btn btn-danger" href="/carts/reorder/{{$order->id}}">Reorder This</a>
 								</td>
 							</tr>
 						</thead>
 					</table>
 				</div>
-				
+				@endforeach
 
 
 			</div>

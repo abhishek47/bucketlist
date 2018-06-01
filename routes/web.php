@@ -27,7 +27,11 @@ Route::post('/budget/set', 'BudgetController@set');
 
 Route::post('/carts', 'CartController@index');
 
+Route::get('/orders', 'OrdersController@index');
+
 Route::get('/carts/choose/{index}', 'CartController@choose');
+
+Route::get('/carts/reorder/{order}', 'CartController@reorder');
 
 Route::group(['prefix' => 'admin', 'middleware' => ['admin'], 'namespace' => 'Admin'], function()
 {	

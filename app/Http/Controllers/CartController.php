@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Order;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -75,7 +76,41 @@ class CartController extends Controller
 
         $choosen = $carts[$index];
 
-        return view('cart.choosen', compact('choosen'));
+        $order = new Order;
+
+        $order->user_id = auth()->id();
+
+        $order->total = $choosen['total'];
+
+        $order->save();
+
+        foreach ($choosen['items'] as $key => $product) {
+            $order->products()->attach($product);
+        }
+
+        return view('cart.choosen', compact('choosen', 'order'));
+    }
+
+
+
+    public function reorder(Order $order)
+    {
+        $neworder = new Order;
+
+        $neworder->user_id = auth()->id();
+
+        $neworder->total = 0;
+
+        $neworder->save();
+
+        foreach ($order->products as $key => $product) {
+            $neworder->products()->attach($product);
+            $neworder->total = $order->total + $product->price;
+        }
+
+        $neworder->save();
+
+        return view('cart.choosen', compact('choosen', 'order'));
     }
 
 
