@@ -7,10 +7,12 @@
 	<div class="container my-4">
 		<div class="card">
 			<div class="card-body">
-				<h3 class="font-weight-bold pb-3">Shopping Cart Choices</h3>
+				<h3 class="font-weight-bold pb-3">Your order has been placed successfully</h3>
+			
 				<hr>
 
-				@foreach($carts as $index => $cart)
+				<h2>Order Summary</h2>
+									
 				<div style="margin-bottom: 25px;">
 					<table class="table table-stripped" style="font-size: 20px;">
 						<thead class="thead-dark">
@@ -18,7 +20,7 @@
 								<th>Name</th>
 								<th style="text-align: right;">Price</th>
 							</tr>
-							@foreach($cart['items'] as $product)
+							@foreach($choosen['items'] as $product)
 								<tr>
 									<td>{{ $product->name }}</td>
 									<td style="text-align: right;">&#8377; {{ $product->price }}</td>
@@ -32,15 +34,14 @@
 							</tr>
 
 							<tr>
-								<td style="font-weight: bold;">You Save : &#8377; {{ session('budget') - $cart['total'] }}</td>
+								<td style="font-weight: bold;">You Saved : &#8377; {{ session('budget') - $cart['total'] }}</td>
 								<td style="text-align: right;">
-									<a class="btn btn-warning" href="/carts/choose/{{$index}}">Choose This Cart</a>
 								</td>
 							</tr>
 						</thead>
 					</table>
 				</div>
-				@endforeach
+				
 
 
 			</div>

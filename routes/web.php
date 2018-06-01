@@ -27,6 +27,8 @@ Route::post('/budget/set', 'BudgetController@set');
 
 Route::post('/carts', 'CartController@index');
 
+Route::post('/carts/choose/{index}', 'CartController@choose');
+
 Route::group(['prefix' => 'admin', 'middleware' => ['admin'], 'namespace' => 'Admin'], function()
 {	
 	CRUD::resource('products', 'ProductCrudController');

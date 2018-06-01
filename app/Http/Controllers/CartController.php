@@ -52,10 +52,32 @@ class CartController extends Controller
             // sort alphabetically by name
         usort($this->carts,  array($this, 'compare_rank'));
 
-      //  dd($this->carts);
+        // dd($this->carts);
+
+        session(['carts' => $this->carts]);
 
     	return view('cart.choices', ['carts' => $this->carts]);
     }
+
+
+    public function choose($index)
+    {
+        $carts = session('carts');
+
+        $choosen = $carts[$index];
+
+        return view('cart.choosen', compact('choosen'));
+    }
+
+
+
+
+
+
+
+
+
+
 
     public function generateCarts($combinations)
     {
