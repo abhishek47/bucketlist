@@ -166,8 +166,12 @@ class CartController extends Controller
                     $this->carts[] = $cart;
                
             } else {
+                if(!count($combination) == 1)
+                {
+
                 $permutations = new \drupol\phpermutations\Generators\Permutations($combination, count($combination)-1);
                 $this->generateCarts($permutations->toArray());
+                }
             }
 
         }
