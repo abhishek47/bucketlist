@@ -56,11 +56,12 @@ class CartController extends Controller
         $combinations = $this->combinations($all_products);
 
 
-        dd($combinations);
 
-        
+
         $this->generateCarts($combinations);
         
+        
+        dd($this->carts);
 
             // sort alphabetically by name
         usort($this->carts,  array($this, 'compare_rank'));
