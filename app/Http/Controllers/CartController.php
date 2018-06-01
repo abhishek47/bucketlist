@@ -171,12 +171,13 @@ class CartController extends Controller
                
             } else {
                 
-                
+                if(count($combination)-1 == 0)
+                {
+                    return;
+                }
 
                 $permutations = new \drupol\phpermutations\Generators\Combinations($combination, count($combination)-1);
 
-                var_dump($permutations->toArray());
-             
                 $this->generateCarts($permutations->toArray());
                 
             } 
