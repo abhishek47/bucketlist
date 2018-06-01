@@ -49,13 +49,17 @@
 
 		@foreach($cart['items'] as $product)
 
-			<div id="product-{{$product->id}}" class="modal fade">
-				<div class="modal-header">
-					{{ $product->name }}
-				</div>			
-				<div class="modal-body">
-					
-					{!! $product->decription !!}
+			<div id="product-{{$product->id}}" class="modal" tabindex="-1" role="dialog">
+			  <div class="modal-dialog" role="document">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <h5 class="modal-title">{{ $product->name }}</h5>
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			          <span aria-hidden="true">&times;</span>
+			        </button>
+			      </div>
+			      <div class="modal-body">
+			        {!! $product->decription !!}
 
 					<hr>
 						<p>
@@ -65,11 +69,14 @@
 						</p>
 					<hr>
 					<h4><b>&#8377; {{ $product->price }}</b></h4>
-
-
-				</div>
+			      </div>
+			      <div class="modal-footer">
+			        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+			      </div>
+			    </div>
+			  </div>
 			</div>
-
+						
 		@endforeach
 
 @endsection
