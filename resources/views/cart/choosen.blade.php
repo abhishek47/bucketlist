@@ -20,7 +20,7 @@
 								<th>Name</th>
 								<th style="text-align: right;">Price</th>
 							</tr>
-							@foreach($choosen['items'] as $product)
+							@foreach($order->products as $product)
 								<tr>
 									<td>{{ $product->name }}</td>
 									<td style="text-align: right;">&#8377; {{ $product->price }}</td>
@@ -29,12 +29,12 @@
 							<tr>
 								<td></td>
 								<td style="text-align: right;font-weight: bold;">
-									Total : &#8377; {{ $choosen['total'] }}
+									Total : &#8377; {{ $order->total }}
 								</td>
 							</tr>
 
 							<tr>
-								<td style="font-weight: bold;">You Saved : &#8377; {{ session('budget') - $choosen['total'] }}</td>
+								<td style="font-weight: bold;">You Saved : &#8377; {{ $order->savings }}</td>
 								<td style="text-align: right;">
 									<a class="btn btn-primary" href="/budget/set">Continue Shopping</a>
 								</td>

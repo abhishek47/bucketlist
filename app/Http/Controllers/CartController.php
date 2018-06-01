@@ -90,7 +90,7 @@ class CartController extends Controller
             $order->products()->attach($product);
         }
 
-        return view('cart.choosen', compact('choosen', 'order'));
+        return view('cart.choosen', compact( 'order'));
     }
 
 
@@ -124,8 +124,9 @@ class CartController extends Controller
         $neworder->save();
 
 
+        $order = $neworder;
 
-        return view('cart.choosen', compact('choosen', 'order'));
+        return view('cart.choosen', compact('order'));
     }
 
 
