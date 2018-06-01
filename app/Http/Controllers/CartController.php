@@ -144,10 +144,11 @@ class CartController extends Controller
 
     public function generateCarts($combinations)
     {
-        var_dump($combinations);
+        
         $budget = session('budget');
         foreach ($combinations as $key => $combination) {
-
+            if(empty($combination))
+                return;
             $cart = [];
 
             $cart['items'] = $combination;
