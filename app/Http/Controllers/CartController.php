@@ -168,15 +168,12 @@ class CartController extends Controller
                     $cart['rank_value'] = $cart['total_profit'] / $cart['rating'] + count($cart['items']);
                     $this->carts[] = $cart;
                
-            } else {
-               if(count($combination) > 2)
-               {
-                  $permutations = new \drupol\phpermutations\Generators\Permutations($combination, count($combination)-1);
-                  $this->generateCarts($permutations->toArray());
-               }
-
+            } /*else {
+               
+                $permutations = new \drupol\phpermutations\Generators\Permutations($combination, count($combination)-1);
+                $this->generateCarts($permutations->toArray());
                 
-            }
+            } */
 
         }
     }
