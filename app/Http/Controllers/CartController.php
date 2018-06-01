@@ -52,6 +52,7 @@ class CartController extends Controller
     	}
 
 
+        dd($all_products);
 
         $combinations = $this->combinations($all_products);
 
