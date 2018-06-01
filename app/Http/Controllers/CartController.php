@@ -51,11 +51,11 @@ class CartController extends Controller
             $all_products[] = $products;
     	}
 
-       dd($all_products);
+       
 
         $combinations = $this->combinations($all_products);
 
-
+dd($combinations);
 
 
         $this->generateCarts($combinations);
