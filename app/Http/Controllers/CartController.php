@@ -48,7 +48,7 @@ class CartController extends Controller
 						    $query->where('options.id', $options[$category->id]);
 						})->with('options')->get();
 
-            $all_products[] = $products->toArray();
+            $all_products[] = $products;
     	}
 
 
