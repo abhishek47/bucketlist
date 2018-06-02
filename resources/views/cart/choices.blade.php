@@ -53,8 +53,17 @@
 					        </button>
 					      </div>
 					      <div class="modal-body">
-					        {!! $product->description !!}
 
+					     	<div class="row">
+						        <div class="col-md-6">
+						        	{!! $product->description !!}
+						        </div>
+
+						        <div class="col-md-6">
+						        	<img src="{{ url($product->main_image) }}" style="width: 100%;height: 270px;">
+						        </div>
+					        </div>
+						
 							<hr>
 								<p>
 								@foreach($product->options as $option)
@@ -62,7 +71,9 @@
 								@endforeach
 								</p>
 							<hr>
+						
 							<h4><b>&#8377; {{ $product->price }}</b></h4>
+					    
 					      </div>
 					      <div class="modal-footer">
 					        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
